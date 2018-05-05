@@ -1,2 +1,3 @@
 # ListaCompras
-Projeto Android para um aplicativo de uma lista de compras
+Trabalho Android para um aplicativo de uma lista de compras
+Disciplina: Programação para dispositivos móveis
