@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnAdc = findViewById(R.id.adicionarBtn);
         Button btnEdt = findViewById(R.id.editarBtn);
         Button btnRem = findViewById(R.id.removerBtn);
-        Intent adcIntent = new Intent(this, ItemViewActivity.class);
+        Intent itemIntent = new Intent(this, ItemActivity.class);
 
         exibirLista();
 

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,8 +15,8 @@
 
     <Button
         android:id="@+id/adicionarBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/listaDeComprasListView"
         android:layout_alignLeft="@+id/listaDeComprasListView"
@@ -27,21 +26,21 @@
 
     <Button
         android:id="@+id/editarBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="50dp"
         android:layout_alignTop="@+id/adicionarBtn"
         android:layout_centerHorizontal="true"
         android:background="@android:color/holo_orange_light"
-        android:text="EDITAR" />
+        android:text="Editar" />
 
     <Button
         android:id="@+id/removerBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="50dp"
         android:layout_alignEnd="@+id/listaDeComprasListView"
         android:layout_alignRight="@+id/listaDeComprasListView"
         android:layout_alignTop="@+id/adicionarBtn"
         android:background="@android:color/holo_red_dark"
-        android:text="REMOVER" />
+        android:text="Remover" />
 
 </RelativeLayout>

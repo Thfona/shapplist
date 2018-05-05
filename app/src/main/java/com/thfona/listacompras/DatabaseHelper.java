@@ -14,7 +14,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_QTD = "Quantidade";
     private static final String CREATE_LISTA_TABLE = "CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_NOME + " TEXT, " + KEY_QTD +" INTEGER);";
     private static final String DROP_LISTA_TABLE = "DROP TABLE " + TABLE_NAME;
-    private static final String INSERT = "INSERT INTO Lista VALUES (_ROWID_, 'Água', 3)";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
