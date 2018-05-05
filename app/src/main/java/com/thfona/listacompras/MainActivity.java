@@ -3,8 +3,7 @@ package com.thfona.listacompras;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listaDeCompras = findViewById(R.id.listaDeComprasListView);
-        ImageButton btnAdc = findViewById(R.id.adicionarBtn);
-        ImageButton btnEdt = findViewById(R.id.editarBtn);
-        ImageButton btnRem = findViewById(R.id.removerBtn);
+        Button btnAdc = findViewById(R.id.adicionarBtn);
+        Button btnEdt = findViewById(R.id.editarBtn);
+        Button btnRem = findViewById(R.id.removerBtn);
         Intent adcIntent = new Intent(this, ItemViewActivity.class);
 
         exibirLista();

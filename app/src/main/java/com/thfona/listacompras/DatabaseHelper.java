@@ -14,7 +14,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_QTD = "Quantidade";
     private static final String CREATE_LISTA_TABLE = "CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_NOME + " TEXT, " + KEY_QTD +" INTEGER);";
     private static final String DROP_LISTA_TABLE = "DROP TABLE " + TABLE_NAME;
-    private static final String INSERT = "INSERT INTO Lista VALUES (6, 'Água', 3)";
+    private static final String INSERT = "INSERT INTO Lista VALUES (_ROWID_, 'Água', 3)";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -27,12 +27,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
-
-    public void openDB() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        db.openDatabase("/data/data/com.thfona.listacompras/databases/" + DATABASE_NAME, null, SQLiteDatabase.OPEN_READWRITE);
     }
 
     public void create() {
@@ -45,17 +39,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_LISTA_TABLE);
     }
 
-    public void insert() {
+    public void adicionarItem(String nome, int quantidade) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL(INSERT);
+        db.execSQL("INSERT INTO Lista VALUES (_ROWID_, " + nome + ", " + quantidade + ")");
     }
 
-    public boolean adicionaItem() {
-        return true;
-    }
-
-    public void deletaItem(SQLiteDatabase db, String nome) {
-        db.delete("Lista", "Nome=?" , new String[]{nome});
+    public void removerItem(String nome) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, "Nome=?" , new String[]{nome});
     }
 
     public Cursor getDados() {
