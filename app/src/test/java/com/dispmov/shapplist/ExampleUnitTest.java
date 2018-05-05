@@ -1,4 +1,4 @@
-package com.dispmov.listacompras;
+package com.dispmov.shapplist;
 
 import org.junit.Test;
 

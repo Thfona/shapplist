@@ -1,4 +1,4 @@
-package com.dispmov.listacompras;
+package com.dispmov.shapplist;
 
 import android.content.Context;
 import android.database.Cursor;

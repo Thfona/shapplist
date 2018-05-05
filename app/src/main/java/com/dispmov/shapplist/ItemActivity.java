@@ -1,4 +1,4 @@
-package com.dispmov.listacompras;
+package com.dispmov.shapplist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
