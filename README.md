@@ -1,2 +1,2 @@
-# ListaCompras
-Trabalho Android para um aplicativo de uma lista de compras / Disciplina: Programação para dispositivos móveis
+# Shapplist
+Aplicativo de lista de compras feito como trabalho para a disciplina de Programação para dispositivos móveis
