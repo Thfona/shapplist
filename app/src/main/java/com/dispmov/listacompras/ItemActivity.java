@@ -1,4 +1,4 @@
-package com.thfona.listacompras;
+package com.dispmov.listacompras;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

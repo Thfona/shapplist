@@ -1,4 +1,4 @@
-package com.thfona.listacompras;
+package com.dispmov.listacompras;
 
 import android.content.Context;
 import android.database.Cursor;

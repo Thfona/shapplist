@@ -1,4 +1,4 @@
-package com.thfona.listacompras;
+package com.dispmov.listacompras;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.thfona.listacompras", appContext.getPackageName());
+        assertEquals("com.dispmov.listacompras", appContext.getPackageName());
     }
 }

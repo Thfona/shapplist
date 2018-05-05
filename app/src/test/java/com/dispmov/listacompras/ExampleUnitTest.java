@@ -1,4 +1,4 @@
-package com.thfona.listacompras;
+package com.dispmov.listacompras;
 
 import org.junit.Test;
 
