@@ -38,14 +38,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(DROP_LISTA_TABLE);
     }
 
-    public void adicionarItem(String nome, int quantidade) {
+    public void teste() {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT INTO Lista VALUES (_ROWID_, " + nome + ", " + quantidade + ")");
+        db.execSQL("INSERT INTO Lista VALUES ('Carne', 1)");
     }
 
-    public void removerItem(String nome) {
+    public void adicionarItem(String nome, int quantidade) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, "Nome=?" , new String[]{nome});
+        db.execSQL("INSERT INTO " + TABLE_NAME + " (" + KEY_NOME + ", " + KEY_QTD + ") " + "VALUES ('" + nome + "', " + quantidade + ")");
+    }
+
+    public void removerItem(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, "_id=?" , new String[]{String.valueOf(id)});
     }
 
     public Cursor getDados() {

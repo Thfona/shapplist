@@ -5,6 +5,30 @@
     android:layout_height="match_parent"
     tools:context=".ItemActivity">
 
+    <EditText
+        android:id="@+id/nomeEdt"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/confirmarBtn"
+        android:layout_alignLeft="@+id/confirmarBtn"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/qtdEdt"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/confirmarBtn"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/confirmarBtn"
+        android:layout_marginTop="190dp"
+        android:ems="10"
+        android:hint="Quantidade"
+        android:inputType="number" />
+
     <Button
         android:id="@+id/confirmarBtn"
         android:layout_width="150dp"
