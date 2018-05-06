@@ -11,8 +11,6 @@ public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper dbHelper = new DatabaseHelper(this);
     private ListView listaDeCompras = null;
-    private Button btnEdt = null;
-    private Button btnRem = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listaDeCompras = findViewById(R.id.listaDeComprasListView);
-        btnEdt = findViewById(R.id.editarBtn);
-        btnRem = findViewById(R.id.removerBtn);
 
         initAdicionarListener();
         exibirLista();
@@ -43,6 +39,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void initEditarListener() {
+        Button btnEdt = findViewById(R.id.editarBtn);
+        btnEdt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ItemActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void initRemoverListener() {
+        Button btnRem = findViewById(R.id.removerBtn);
     }
 
 }
