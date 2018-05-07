@@ -40,8 +40,9 @@ public class ItemActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else if(!disponibilidade) {
                     //TODO: Criar alerta para nome indisponivel
+                    System.out.println(disponibilidade);
                     System.out.println("Indisponivel");
-                } else if(nomeInserido.length() > 0 && qtdInserida.length() > 0) {
+                } else if(nomeInserido.length() <= 0 && qtdInserida.length() <= 0) {
                     //TODO: Criar toast para preencher campo nome e quantidade
                 } else if(nomeInserido.length() <= 0) {
                     //TODO: Criar toast para preencher campo nome
