@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ItemActivity extends AppCompatActivity {
@@ -22,16 +23,20 @@ public class ItemActivity extends AppCompatActivity {
 
         if(intent.hasExtra("conteudo")) {
             String[] conteudo = intent.getStringArrayExtra("conteudo");
-            initConfirmarEditarListener(conteudo);
+            EditText edtNome = findViewById(R.id.nomeEdt);
+            EditText edtQtd = findViewById(R.id.qtdEdt);
+            edtNome.setText(conteudo[0], TextView.BufferType.EDITABLE);
+            edtQtd.setText(conteudo[1], TextView.BufferType.EDITABLE);
+            initConfirmarListener(conteudo);
         } else {
-            initConfirmarAdicionarListener();
+            initConfirmarListener();
         }
 
         initCancelarListener();
 
     }
 
-    protected void initConfirmarAdicionarListener() {
+    protected void initConfirmarListener() {
         Button btnCfm = findViewById(R.id.confirmarBtn);
         btnCfm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,12 +58,29 @@ public class ItemActivity extends AppCompatActivity {
         });
     }
 
-    protected void initConfirmarEditarListener(String[] conteudo) {
+    protected void initConfirmarListener(final String[] conteudo) {
         Button btnCfm = findViewById(R.id.confirmarBtn);
         btnCfm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                EditText edtNome = findViewById(R.id.nomeEdt);
+                EditText edtQtd = findViewById(R.id.qtdEdt);
+                String nomeInserido = edtNome.getText().toString();
+                String qtdInserida = edtQtd.getText().toString();
+                boolean disponibilidade;
+                if(nomeInserido.equals(conteudo[0])) {
+                    disponibilidade = true;
+                } else {
+                    disponibilidade = !dbHelper.itemExiste(nomeInserido);
+                }
+                if(parametrosAtendemCondicoes(nomeInserido, qtdInserida, disponibilidade)) {
+                    int qtdInt = Integer.parseInt(qtdInserida);
+                    dbHelper.alterarItem(nomeInserido, qtdInt);
+                    Intent intent = new Intent(ItemActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    avisos(nomeInserido, qtdInserida, disponibilidade);
+                }
             }
         });
     }
