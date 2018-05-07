@@ -29,6 +29,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    public Cursor getTodosItens() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_ID, KEY_NOME, KEY_QTD}, null, null, null, null, null);
+        return cursor;
+    }
+
     public String[] getItem(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_NOME, KEY_QTD}, KEY_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
@@ -47,6 +53,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
 
         return conteudo;
+    }
+
+    public boolean itemExiste(String nome) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_NOME}, KEY_NOME + " = ?", new String[]{nome}, null, null, null);
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            db.close();
+            return false;
+        }
+        cursor.close();
+        db.close();
+        return true;
     }
 
     public void adicionarItem(String nome, int quantidade) {
@@ -71,25 +90,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, KEY_NOME + " = ?", new String[]{nome});
         db.close();
-    }
-
-    public Cursor getDados() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_ID, KEY_NOME, KEY_QTD}, null, null, null, null, null);
-        return cursor;
-    }
-
-    public boolean verificarExistencia(String nome) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_NOME}, KEY_NOME + " = ?", new String[]{nome}, null, null, null);
-        if(cursor.getCount() <= 0){
-            cursor.close();
-            db.close();
-            return false;
-        }
-        cursor.close();
-        db.close();
-        return true;
     }
 
 }

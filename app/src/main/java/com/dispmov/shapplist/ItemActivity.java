@@ -31,7 +31,7 @@ public class ItemActivity extends AppCompatActivity {
 
     }
 
-    public void initConfirmarAdicionarListener() {
+    protected void initConfirmarAdicionarListener() {
         Button btnCfm = findViewById(R.id.confirmarBtn);
         btnCfm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,20 +40,20 @@ public class ItemActivity extends AppCompatActivity {
                 EditText edtQtd = findViewById(R.id.qtdEdt);
                 String nomeInserido = edtNome.getText().toString();
                 String qtdInserida = edtQtd.getText().toString();
-                boolean disponibilidade = !dbHelper.verificarExistencia(nomeInserido);
+                boolean disponibilidade = !dbHelper.itemExiste(nomeInserido);
                 if(parametrosAtendemCondicoes(nomeInserido, qtdInserida, disponibilidade)) {
                     int qtdInt = Integer.parseInt(qtdInserida);
                     dbHelper.adicionarItem(nomeInserido, qtdInt);
                     Intent intent = new Intent(ItemActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    mensagens(nomeInserido, qtdInserida, disponibilidade);
+                    avisos(nomeInserido, qtdInserida, disponibilidade);
                 }
             }
         });
     }
 
-    public void initConfirmarEditarListener(String[] conteudo) {
+    protected void initConfirmarEditarListener(String[] conteudo) {
         Button btnCfm = findViewById(R.id.confirmarBtn);
         btnCfm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +63,7 @@ public class ItemActivity extends AppCompatActivity {
         });
     }
 
-    public void initCancelarListener() {
+    protected void initCancelarListener() {
         Button btnCcl = findViewById(R.id.cancelarBtn);
         btnCcl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,7 @@ public class ItemActivity extends AppCompatActivity {
         });
     }
 
-    public boolean parametrosAtendemCondicoes(String nome, String quantidade, boolean disponivel) {
+    protected boolean parametrosAtendemCondicoes(String nome, String quantidade, boolean disponivel) {
         if(nome.length() > 0 && nome.length() <= 10 && quantidade.length() > 0 && disponivel) {
             try {
                 Integer.parseInt(quantidade);
@@ -91,7 +91,7 @@ public class ItemActivity extends AppCompatActivity {
         }
     }
 
-    public void mensagens(String nome, String quantidade, boolean disponivel) {
+    protected void avisos(String nome, String quantidade, boolean disponivel) {
         if(!disponivel) {
             Toast toast = Toast.makeText(ItemActivity.this, "Já existe um item com o nome escolhido", Toast.LENGTH_SHORT);
             toast.show();

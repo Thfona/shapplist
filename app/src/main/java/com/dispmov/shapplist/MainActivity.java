@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void exibirLista() {
-        ListViewCursorAdapter lvca = new ListViewCursorAdapter(this, dbHelper.getDados());
+    protected void exibirLista() {
+        ListViewCursorAdapter lvca = new ListViewCursorAdapter(this, dbHelper.getTodosItens());
         listaDeCompras.setAdapter(lvca);
     }
 
-    public void initListViewListener() {
+    protected void initListViewListener() {
         listaDeCompras.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void initAdicionarListener() {
+    protected void initAdicionarListener() {
         Button btnAdc = findViewById(R.id.adicionarBtn);
         btnAdc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void initEditarListener() {
+    protected void initEditarListener() {
         Button btnEdt = findViewById(R.id.editarBtn);
         btnEdt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void initRemoverListener() {
+    protected void initRemoverListener() {
         Button btnRem = findViewById(R.id.removerBtn);
         btnRem.setOnClickListener(new View.OnClickListener() {
             @Override
