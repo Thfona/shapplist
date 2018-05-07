@@ -9,12 +9,11 @@
         android:id="@+id/listaDeComprasListView"
         android:layout_width="421dp"
         android:layout_height="268dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
         android:choiceMode="singleChoice"
         android:listSelector="@color/colorSelected" />
 
@@ -22,9 +21,11 @@
         android:id="@+id/adicionarBtn"
         android:layout_width="95dp"
         android:layout_height="50dp"
-        android:layout_alignStart="@+id/editarBtn"
-        android:layout_alignLeft="@+id/editarBtn"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/listaDeComprasListView"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="22dp"
         android:background="@android:color/holo_green_dark"
         android:text="Adicionar" />
 
@@ -32,11 +33,9 @@
         android:id="@+id/editarBtn"
         android:layout_width="95dp"
         android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:layout_alignStart="@+id/adicionarBtn"
+        android:layout_alignLeft="@+id/adicionarBtn"
         android:layout_centerVertical="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginLeft="22dp"
         android:background="@android:color/holo_orange_light"
         android:text="Editar" />
 
@@ -44,10 +43,9 @@
         android:id="@+id/removerBtn"
         android:layout_width="95dp"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@+id/listaDeComprasListView"
         android:layout_alignStart="@+id/adicionarBtn"
         android:layout_alignLeft="@+id/adicionarBtn"
-        android:layout_marginBottom="20dp"
         android:background="@android:color/holo_red_dark"
         android:text="Remover" />
 
