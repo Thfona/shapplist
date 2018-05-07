@@ -29,6 +29,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    public String[] getItem(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_NOME, KEY_QTD}, KEY_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
+
+        String[] conteudo = new String[2];
+
+        if (cursor.moveToFirst()){
+            int i = 0;
+            do{
+                conteudo[i] = cursor.getString(cursor.getColumnIndex(KEY_NOME));
+                i++;
+                conteudo[i] = cursor.getString(cursor.getColumnIndex(KEY_QTD));
+                i++;
+            } while(cursor.moveToNext());
+        }
+        cursor.close();
+
+        return conteudo;
+    }
+
     public void adicionarItem(String nome, int quantidade) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
