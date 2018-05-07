@@ -1,5 +1,5 @@
 # Shapplist
-Aplicativo de lista de compras feito como trabalho para a disciplina de Programação para dispositivos móveis.
+Aplicativo de lista de compras feito como trabalho para a disciplina de Programação para Dispositivos Móveis.
 
 ## Integrantes do Grupo
 + André González Lage Fonseca Junior
