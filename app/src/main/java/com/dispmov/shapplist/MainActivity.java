@@ -1,6 +1,8 @@
 package com.dispmov.shapplist;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
         initListViewListener();
         initAdicionarListener();
         initEditarListener();
-        initRemoverListener();
+        initExcluirListener();
         exibirLista();
 
     }
 
     protected void exibirLista() {
-        ListViewCursorAdapter lvca = new ListViewCursorAdapter(this, dbHelper.getTodosItens());
+        ListViewCursorAdapter lvca = new ListViewCursorAdapter(this, dbHelper.getLista());
         listaDeCompras.setAdapter(lvca);
     }
 
@@ -74,17 +76,37 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    protected void initRemoverListener() {
-        Button btnRem = findViewById(R.id.removerBtn);
+    protected void initExcluirListener() {
+        Button btnRem = findViewById(R.id.excluirBtn);
         btnRem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(itemSelecionado != null) {
-                    String[] conteudo = dbHelper.getItem(itemSelecionado);
-                    dbHelper.removerItem(conteudo[0]);
-                    exibirLista();
+
+                    final String[] conteudo = dbHelper.getItem(itemSelecionado);
+
+                    AlertDialog alerta;
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle("Confirmar Exclusão");
+                    builder.setMessage("Deseja realmente excluir o item " + conteudo[0] + "?");
+                    builder.setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            dbHelper.excluirItem(conteudo[0]);
+                            exibirLista();
+                        }
+                    });
+                    builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface arg0, int arg1) {
+
+                        }
+                    });
+
+                    alerta = builder.create();
+                    alerta.show();
+
                 } else {
-                    Toast toast = Toast.makeText(MainActivity.this, "Selecione um item para remover", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(MainActivity.this, "Selecione um item para excluir", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }

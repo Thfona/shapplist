@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Shapplist</string>
+    <string name="adicionar_btn">Adicionar</string>
+    <string name="editar_btn">Editar</string>
+    <string name="excluir_btn">Excluir</string>
+    <string name="nome_txt">Nome</string>
+    <string name="qtd_txt">Quantidade</string>
+    <string name="confirmar_btn">Confirmar</string>
+    <string name="cancelar_btn">Cancelar</string>
 </resources>

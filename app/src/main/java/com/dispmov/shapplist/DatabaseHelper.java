@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
-    public Cursor getTodosItens() {
+    public Cursor getLista() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, new String[]{KEY_ID, KEY_NOME, KEY_QTD}, null, null, null, null, null);
         return cursor;
@@ -77,16 +77,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void alterarItem(String nome, int quantidade) {
+    public void editarItem(String nomeAntigo, String nomeNovo, int quantidade) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(KEY_NOME, nome);
+        cv.put(KEY_NOME, nomeNovo);
         cv.put(KEY_QTD, quantidade);
-        db.update(TABLE_NAME, cv, KEY_NOME + " = ?", new String[]{nome});
+        db.update(TABLE_NAME, cv, KEY_NOME + " = ?", new String[]{nomeAntigo});
         db.close();
     }
 
-    public void removerItem(String nome) {
+    public void excluirItem(String nome) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, KEY_NOME + " = ?", new String[]{nome});
         db.close();

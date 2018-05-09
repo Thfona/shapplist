@@ -26,8 +26,9 @@
         android:layout_alignTop="@+id/listaDeComprasListView"
         android:layout_marginEnd="22dp"
         android:layout_marginRight="22dp"
-        android:background="@android:color/holo_green_dark"
-        android:text="Adicionar" />
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/button_background"
+        android:text="@string/adicionar_btn" />
 
     <Button
         android:id="@+id/editarBtn"
@@ -36,17 +37,19 @@
         android:layout_alignStart="@+id/adicionarBtn"
         android:layout_alignLeft="@+id/adicionarBtn"
         android:layout_centerVertical="true"
-        android:background="@android:color/holo_orange_light"
-        android:text="Editar" />
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/button_background"
+        android:text="@string/editar_btn" />
 
     <Button
-        android:id="@+id/removerBtn"
+        android:id="@+id/excluirBtn"
         android:layout_width="95dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/listaDeComprasListView"
         android:layout_alignStart="@+id/adicionarBtn"
         android:layout_alignLeft="@+id/adicionarBtn"
-        android:background="@android:color/holo_red_dark"
-        android:text="Remover" />
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/button_background"
+        android:text="@string/excluir_btn" />
 
 </RelativeLayout>

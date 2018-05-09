@@ -75,7 +75,7 @@ public class ItemActivity extends AppCompatActivity {
                 }
                 if(parametrosAtendemCondicoes(nomeInserido, qtdInserida, disponibilidade)) {
                     int qtdInt = Integer.parseInt(qtdInserida);
-                    dbHelper.alterarItem(nomeInserido, qtdInt);
+                    dbHelper.editarItem(conteudo[0], nomeInserido, qtdInt);
                     Intent intent = new Intent(ItemActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
@@ -97,7 +97,7 @@ public class ItemActivity extends AppCompatActivity {
     }
 
     protected boolean parametrosAtendemCondicoes(String nome, String quantidade, boolean disponivel) {
-        if(nome.length() > 0 && nome.length() <= 10 && quantidade.length() > 0 && disponivel) {
+        if(nome.length() > 0 && quantidade.length() > 0 && disponivel) {
             try {
                 Integer.parseInt(quantidade);
             } catch (NumberFormatException nfe) {
@@ -122,9 +122,6 @@ public class ItemActivity extends AppCompatActivity {
             toast.show();
         } else if(nome.length() <= 0) {
             Toast toast = Toast.makeText(ItemActivity.this, "Preencha o campo nome", Toast.LENGTH_SHORT);
-            toast.show();
-        } else if(nome.length() > 10) {
-            Toast toast = Toast.makeText(ItemActivity.this, "Nome Inválido, MAX: 10 caracteres", Toast.LENGTH_SHORT);
             toast.show();
         } else if(quantidade.length() <= 0) {
             Toast toast = Toast.makeText(ItemActivity.this, "Preencha o campo quantidade", Toast.LENGTH_SHORT);
