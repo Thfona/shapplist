@@ -1,7 +1,7 @@
 # Shapplist
-Aplicativo de lista de compras feito como trabalho para a disciplina de Programação para Dispositivos Móveis.
+Shopping list app made as part of the Mobile Programming course assignment when I was at university.
 
-## Integrantes do Grupo
+## Group Members
 + André Luiz Gonçalves de Albuquerque Junior
-+ Pedro Lucca Leonardo de Almeida
-+ Thiago Fonseca do Nascimento
++ [Pedro Lucca Leonardo de Almeida](https://github.com/luccazx)
++ [Thiago Fonseca do Nascimento](https://github.com/Thfona)
